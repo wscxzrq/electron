@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+.drag {
+  -webkit-app-region: drag;
+}
+
+.nodrag,
+input,
+select,
+textarea,
+option {
+  -webkit-app-region: no-drag;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+#app {
+  padding: 5px;
+}

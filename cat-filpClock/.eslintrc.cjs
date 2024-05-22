@@ -12,6 +12,7 @@ module.exports = {
   ],
   rules: {
     'vue/require-default-prop': 'off',
-    'vue/multi-word-component-names': 'off'
+    'vue/multi-word-component-names': 'off',
+    'prefer-const': 'off' // 关闭 prefer-const 规则'
   }
 }

@@ -1,17 +1,21 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import icon from '../../resources/icon.png?asset'
+import icon from '../../resources/icon.png'
 
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 500,
-    height: 300,
+    width: 300,
+    height: 80,
     show: false,
-    alwaysOnTop:true, // 窗口置顶
-    x:1500,
-    y:100,
+    alwaysOnTop: true, // 窗口置顶
+    x: 1500,
+    y: 100,
+    resizable: false, // 禁止缩放
+    maximizable: false, // 关闭最大化
+    frame: false, // 隐藏边框
+    transparent: true, // 背景透明
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
@@ -20,6 +24,10 @@ function createWindow(): void {
     }
   })
 
+  // 在开发环境打开调试工具
+  if (is.dev) {
+    mainWindow.webContents.openDevTools()
+  }
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
