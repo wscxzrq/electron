@@ -15,6 +15,7 @@ onMounted(() => {
     el: '#mm',
     type: 'clock',
     timing: {
+      minute:8,
       second: 10
     }
   })

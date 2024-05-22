@@ -20,6 +20,7 @@ export default class FlipClock extends FlipNumber {
   // }
 
   render() {
+    this.init()
     this.clock()
     this.intervalId = setInterval(() => {
       this.getNums()
