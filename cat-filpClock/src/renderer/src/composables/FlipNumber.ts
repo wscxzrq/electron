@@ -13,6 +13,7 @@ export default class FlipNumber {
   constructor(protected options: OptionsType) {
     this.options = Object.assign({ type: 'clock', style: 'hd' }, options)
   }
+  
   init() {
     this.endTime = dayjs()
     if (this.options.type != 'clock') {

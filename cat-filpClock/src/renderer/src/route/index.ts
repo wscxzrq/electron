@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@renderer/views/Home.vue'
-// import Show from '@/views/Show'
+import Clock from '@renderer/views/Clock.vue'
+import Config from '@renderer/views/Config.vue'
 
 const routes = [
-  { name: 'home', path: '/', component: Home }
-  // {name:'show',path'/show',component:Show},
+  { name: 'clock', path: '/', component: Clock },
+  { name: 'config', path: '/config', component: Config }
 ]
 
 const router = createRouter({

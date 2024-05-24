@@ -1,25 +1,31 @@
 import FlipNumber, { OptionsType } from './FlipNumber'
 
 export default class FlipClock extends FlipNumber {
-  private main: HTMLElement
+  private main: HTMLElement | undefined
   private divs: NodeListOf<HTMLDivElement>[] = []
   private intervalId: NodeJS.Timeout | undefined
 
   constructor(options: OptionsType) {
     super(options)
-    this.main = document.querySelector(options.el) as HTMLElement
-    this.main.classList.add('main')
-    // this.addCssElement()
+    
   }
 
-  // addCssElement() {
-  //   document.head.insertAdjacentElement(
-  //     'afterbegin',
-  //     `<link rel="stylesheet" href="${this.options.style}.css" />`
-  //   )
-  // }
+  // 配置项修改
+  config(options: OptionsType) {
+    this.options = options
+    return this
+  }
+
+  // 销毁
+  destroy() {
+    this.stop()
+    this.main!.innerHTML = ''
+    return this
+  }
 
   render() {
+    this.main = document.querySelector(this.options.el) as HTMLElement
+    this.main.classList.add('main')
     this.init()
     this.clock()
     this.intervalId = setInterval(() => {
@@ -35,7 +41,7 @@ export default class FlipClock extends FlipNumber {
     clearInterval(this.intervalId)
   }
 
-  ///执行div的渲染
+  // 执行div的渲染
   updateDivNumber() {
     this.divs.forEach((divs, index) => {
       const div = divs[1]

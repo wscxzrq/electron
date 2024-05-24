@@ -1,22 +1,22 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import icon from '../../resources/icon.png'
-import ipc from './ipc'
-
+import icon from '../../resources/icon.png?asset'
+import './ipc'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 300,
-    height: 400,
+    width: 330,
+    height: 600,
     show: false,
     alwaysOnTop: true, // 窗口置顶
-    x: 1500,
-    y: 100,
+    x: 1100,
+    y: 200,
+    hasShadow:false,
     resizable: false, // 禁止缩放
     maximizable: false, // 关闭最大化
     frame: false, // 隐藏边框
-    // transparent: true, // 背景透明
+    transparent: true, // 背景透明
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {

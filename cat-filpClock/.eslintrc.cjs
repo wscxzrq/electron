@@ -14,5 +14,6 @@ module.exports = {
     'vue/require-default-prop': 'off',
     'vue/multi-word-component-names': 'off',
     'prefer-const': 'off' // 关闭 prefer-const 规则'
+    'no-unused-vars': 'off'
   }
 }

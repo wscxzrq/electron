@@ -20,7 +20,7 @@
 .main > section {
   @include size($width, $height);
   position: relative;
-  // -webkit-app-region: no-drag;
+  -webkit-app-region: no-drag;
 }
 .main > p::after {
   content: ':';
@@ -29,6 +29,7 @@
   font: bold $height arial;
   text-align: center;
   line-height: $height;
+  color: $color;
 }
 .main > section > div {
   position: absolute;

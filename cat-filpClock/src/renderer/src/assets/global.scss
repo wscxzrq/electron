@@ -19,5 +19,6 @@ body {
 }
 
 #app {
+  // 因为 body 部分与 APP 渲染部分存在重叠，所以需要增加 padding 来为禁止穿透制造时机
   padding: 5px;
 }
