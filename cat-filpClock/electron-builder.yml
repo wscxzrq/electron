@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: cat-filpclock
+productName: '喵喵时钟'
 directories:
   buildResources: build
 files:
@@ -12,7 +12,7 @@ files:
 asarUnpack:
   - resources/**
 win:
-  executableName: cat-filpclock
+  executableName: '喵喵时钟'
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}

@@ -20,4 +20,4 @@ export const useConfigStore = defineStore('config', () => {
   })
 
   return { config }
-})
+},{persist: true,})
