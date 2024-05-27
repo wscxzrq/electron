@@ -1,6 +1,6 @@
 <template>
-  <main class="p-3 drag bg-white bg-opacity-30 rounded-lg">
-    <div class="bg-pink-200 rounded-lg w-full p-3 nodrag">
+  <main class="p-3 drag bg-white bg-opacity-30 rounded-lg ">
+    <div class="bg-pink-200 rounded-lg w-full p-3 nodrag h-[400px] overflow-y-auto">
       <div class="card">
         <h2>时钟的颜色</h2>
         <div class="body">
@@ -47,7 +47,17 @@
         <div class="body">
           <div class="block">
             文字内容
-            <el-color-picker v-model="config.clock.bgColor" />
+            <el-input v-model="config.footer.content" />
+          </div>
+        </div>
+        <div class="body">
+          <div class="block">
+            背景颜色
+            <el-color-picker v-model="config.footer.bgColor" />
+          </div>
+          <div class="block">
+            文字颜色
+            <el-color-picker v-model="config.footer.color" />
           </div>
         </div>
       </div>
