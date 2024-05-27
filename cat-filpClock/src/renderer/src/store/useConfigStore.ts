@@ -16,7 +16,7 @@ export const useConfigStore = defineStore('config', () => {
       bgColor: '#16a085',
       color: '#fff',
       content:'💗爱你呦喵喵老婆💗'
-    }
+    },
   })
 
   return { config }

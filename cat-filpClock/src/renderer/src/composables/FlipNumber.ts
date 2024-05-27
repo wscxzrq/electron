@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import { useConfigStore } from '@renderer/store/useConfigStore'
 
 export type OptionsType = {
   el: string
@@ -8,12 +9,14 @@ export type OptionsType = {
 
 export default class FlipNumber {
   protected nums: number[] = []
-
+  protected content: string = ''
   protected endTime: dayjs.Dayjs | undefined
   constructor(protected options: OptionsType) {
+    const { config } = useConfigStore()
+    this.content = config.footer.content
     this.options = Object.assign({ type: 'clock', style: 'hd' }, options)
   }
-  
+
   init() {
     this.endTime = dayjs()
     if (this.options.type != 'clock') {
@@ -53,10 +56,20 @@ export default class FlipNumber {
 
   //获取时间的数字
   getClockNums() {
+    const { config } = useConfigStore()
+
     this.nums = dayjs()
       .format('HHmmss')
       .split('')
       .map((n) => +n)
+    if (this.areLastFourElementsZero(this.nums)) {
+      config.footer.content = '💓小菜提醒：该喝水了哦喵宝～'
+      let timer
+      if (timer) clearTimeout(timer)
+      timer = setTimeout(() => {
+        config.footer.content = this.content
+      }, 3000)
+    }
   }
 
   //定时器数字
@@ -81,5 +94,11 @@ export default class FlipNumber {
       after = after > 6 ? 0 : after
     }
     return { before, after }
+  }
+
+  // 判断是否整点
+  areLastFourElementsZero(arr) {
+    const lastFourElements = arr.slice(-4)
+    return lastFourElements.every((element) => element === 0)
   }
 }

@@ -10,8 +10,8 @@ function createWindow(): void {
     height: 600,
     show: false,
     alwaysOnTop: true, // 窗口置顶
-    x: 1100,
-    y: 200,
+    // x: 1100,
+    // y: 200,
     hasShadow:false,
     resizable: false, // 禁止缩放
     maximizable: false, // 关闭最大化
