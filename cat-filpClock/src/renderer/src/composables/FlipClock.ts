@@ -1,4 +1,6 @@
 import FlipNumber, { OptionsType } from './FlipNumber'
+import { useConfigStore } from '@renderer/store/useConfigStore'
+
 
 export default class FlipClock extends FlipNumber {
   private main: HTMLElement | undefined
@@ -7,7 +9,6 @@ export default class FlipClock extends FlipNumber {
 
   constructor(options: OptionsType) {
     super(options)
-    
   }
 
   // 配置项修改
@@ -25,7 +26,8 @@ export default class FlipClock extends FlipNumber {
 
   render() {
     this.main = document.querySelector(this.options.el) as HTMLElement
-    this.main.classList.add('main')
+    const { config } = useConfigStore()
+    this.main.classList.add(config.clock.mode)
     this.init()
     this.clock()
     this.intervalId = setInterval(() => {

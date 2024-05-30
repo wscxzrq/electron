@@ -1,6 +1,6 @@
 <template>
   <main
-    class="drag w-full px-2 text-center mt-2 rounded-md darg text-white flex justify-between items-center"
+    class="drag w-full px-2 text-center mt-2 rounded-md text-white flex justify-between items-center"
     :style="{ backgroundColor: config.footer.bgColor, color: config.footer.color }"
   >
     <div class="text-sm run">{{ config.footer.content }}</div>

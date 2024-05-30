@@ -1,5 +1,5 @@
 <template>
-  <main class="p-3 drag bg-white bg-opacity-30 rounded-lg ">
+  <main class="p-3 drag bg-[#fff] bg-opacity-30 rounded-lg">
     <div class="bg-pink-200 rounded-lg w-full p-3 nodrag h-[400px] overflow-y-auto">
       <div class="card">
         <h2>时钟的颜色</h2>
@@ -14,6 +14,7 @@
           </div>
         </div>
       </div>
+
       <div class="card">
         <h2>倒计时时间</h2>
         <div class="card flex flex-col gap-2">
@@ -61,13 +62,33 @@
           </div>
         </div>
       </div>
+
+      <div class="card">
+        <h2>时钟模式</h2>
+        <div class="body">
+          <div class="block">
+            <el-radio-group v-model="config.clock.mode" class="ml-4">
+              <el-radio value="filpclock" size="large">翻页样式</el-radio>
+              <el-radio value="base" size="large">朴素样式</el-radio>
+            </el-radio-group>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 </template>
 
 <script lang="ts" setup>
+import { watch } from 'vue'
+import FlipClock from '@renderer/composables/FlipClock'
 import { useConfigStore } from '@renderer/store/useConfigStore'
 const { config } = useConfigStore()
+watch(
+  () => config.clock.mode,
+  () => {
+    new FlipClock({ el: '#mm', ...config.clock })
+  }
+)
 </script>
 
 <style lang="scss">

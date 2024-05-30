@@ -13,16 +13,16 @@
 //   @include flex();
 // }
 
-.filpclock {
+.base {
   display: flex;
   gap: 10px;
 }
-.filpclock > section {
+.base > section {
   @include size($width, $height);
   position: relative;
   -webkit-app-region: no-drag;
 }
-.filpclock > p::after {
+.base > p::after {
   content: ':';
   display: block;
   @include size(10px, $height);
@@ -31,7 +31,7 @@
   line-height: $height;
   color: $color;
 }
-.filpclock > section > div {
+.base > section > div {
   position: absolute;
   &::before,
   &::after {
@@ -45,7 +45,7 @@
     background-color: $bgColor;
   }
   &::before {
-    content: attr(data-after);
+    content: attr(data-before);
     line-height: $height;
   }
   &::after {
@@ -53,7 +53,8 @@
     line-height: 0;
   }
 }
-.filpclock > section > div:nth-child(2) {
+.base > section > div:nth-child(2) {
+  opacity: 0;
   @include size($width, calc($height/2));
   transform-style: preserve-3d;
   // backface-visibility: hidden;
@@ -70,10 +71,10 @@
     backface-visibility: hidden;
   }
 }
-.filpclock > section {
+.base > section {
   perspective: 200px;
 }
-.filpclock > section > div:nth-child(2).flipDown {
+.base > section > div:nth-child(2).flipDown {
   animation-name: flipDown;
   animation-duration: .6s;
   animation-fill-mode: both;

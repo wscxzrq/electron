@@ -8,12 +8,13 @@ export const useConfigStore = defineStore('config', () => {
       type: 'clock' as 'clock' | 'timing',
       timing: {
         hour:0,
-        second: 8,
-        minute: 0,
-      }
+        minute: 8,
+        second: 0,
+      },
+      mode:'filpclock' as 'filpclock' | 'base'
     },
     footer: {
-      bgColor: '#16a085',
+      bgColor: '#EA9A8E',
       color: '#fff',
       content:'💗爱你呦喵喵老婆💗'
     },

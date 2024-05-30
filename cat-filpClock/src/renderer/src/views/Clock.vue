@@ -12,6 +12,7 @@
 import { onMounted, watch } from 'vue'
 import FlipClock from '@renderer/composables/FlipClock'
 import '@renderer/assets/filpClock.scss'
+import '@renderer/assets/base.scss'
 import { useConfigStore } from '@renderer/store/useConfigStore'
 const { config } = useConfigStore()
 const instance = new FlipClock({ el: '#mm', ...config.clock })

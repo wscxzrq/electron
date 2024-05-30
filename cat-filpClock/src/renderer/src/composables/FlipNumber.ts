@@ -14,7 +14,7 @@ export default class FlipNumber {
   constructor(protected options: OptionsType) {
     const { config } = useConfigStore()
     this.content = config.footer.content
-    this.options = Object.assign({ type: 'clock', style: 'hd' }, options)
+    this.options = Object.assign({ type: 'clock'}, options)
   }
 
   init() {
@@ -94,7 +94,7 @@ export default class FlipNumber {
       after = after > 6 ? 0 : after
     }
     return { before, after }
-  }
+  } 
 
   // 判断是否整点
   areLastFourElementsZero(arr) {
